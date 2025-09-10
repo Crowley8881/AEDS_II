@@ -1,29 +1,23 @@
 import java.util.Scanner;
 
-public class SomadigitoRecursiva  {
+public class SomadigitoRecursiva {
     public static int contadig(int n) {
-        int soma =0;
-        if (n <= 0) {
-            return n;
+        if (n == 0) {
+            return 0; // caso base
         }
-        String numeroString = String.valueOf(n);
-        for (int i=0; i < numeroString.length(); i++) {
-            int numerodig = numeroString.charAt(i);
-            soma += Character.getNumericValue(numerodig);
-        }
-
-        return soma;
+        return (n % 10) + contadig(n / 10); 
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Digite o numero:");
+        System.out.print("Digite um número: ");
         int N = scanner.nextInt();
+
         int resultado = contadig(N);
 
-        System.out.println("Soma dig: " + resultado);
+        System.out.println("Soma dos dígitos: " + resultado);
+
         scanner.close();
     }
 }
-
